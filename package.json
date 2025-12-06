@@ -1,0 +1,24 @@
+{
+  "name": "task_manager",
+  "version": "1.0.0",
+  "description": "add and removing task , to do list",
+  "main": "mongo_db_connection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijigishu/Task_Manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vijigishu/Task_Manager/issues"
+  },
+  "homepage": "https://github.com/vijigishu/Task_Manager#readme",
+  "dependencies": {
+    "mongodb": "^6.21.0"
+  }
+}
