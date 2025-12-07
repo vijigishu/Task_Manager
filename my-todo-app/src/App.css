@@ -1,0 +1,38 @@
+
+#signup_box{
+   margin-left: 600px;
+   margin-top: 200px;
+   border: 1px solid rgb(14,14,14);
+   width: 400px;
+   height: 500px;
+   padding: 20px;
+   border-radius: 10px;
+} 
+
+#userinfo{
+  margin-top: 30px;
+}
+
+#uname, #passw,#cpass {
+   display: block;
+   margin: 20px auto;
+   height: 30px;
+   width: 200px;
+}
+
+#signup{
+   display: block;
+   margin: 20px auto;
+   height: 40px;
+   width: 120px;
+   background-color: rgb(13, 93, 222);
+   color: aliceblue;
+   font-size: medium;
+}
+
+#taskm{
+   font-size: 50px;
+   margin-left: 40px;
+   color: rgb(184, 217, 245);
+   padding-top: 20px;
+}

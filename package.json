@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/vijigishu/Task_Manager#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
     "mongodb": "^6.21.0"
   }
 }
