@@ -36,3 +36,30 @@
    color: rgb(184, 217, 245);
    padding-top: 20px;
 }
+.add_button{
+  padding: 10px 20px;
+  width: fit-content;
+  color: azure;
+  background-color: crimson;
+  border-radius: 10px;
+}
+.add_button:hover{
+   background-color: rgb(245, 81, 78);
+   
+}
+.task-field{
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+}
+.input{
+   width: 300px;   /* adjust as you like */
+  padding: 8px;
+}
+
+.navbar{
+  display: flex;
+  width: max-content;
+  height: 40px;
+  color: light rgb(238, 83, 83);
+}

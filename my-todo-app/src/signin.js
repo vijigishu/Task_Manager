@@ -42,12 +42,15 @@ async function handlesignin(){
     }
     if(response.status===401){
       window.alert("Wrong password");
-      navigate("/");
+      
       return;
     }
     if(response.status===500){
       window.alert("Server error , please try again later");
       return;
+    }
+    if(response.status===201){
+      navigate("/customer_dashboard");
     }
     
 }
