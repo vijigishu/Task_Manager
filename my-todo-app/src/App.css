@@ -50,6 +50,8 @@
 .task-field{
    display: flex;
    flex-direction: column;
+   align-items: center;
+   align-self: center;
    gap: 12px;
 }
 .input{
@@ -59,7 +61,95 @@
 
 .navbar{
   display: flex;
-  width: max-content;
-  height: 40px;
-  color: light rgb(238, 83, 83);
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  padding-left: 10px;
+  color: aliceblue;
+  background-color:rgb(238, 83, 83);
+}
+
+.tasktable{
+    display: flex;
+  justify-content: center;   /* horizontal center */
+  margin-top: 40px;
+}
+.tasktable table {
+  width: 1000px;
+  border-style: solid;
+  border-radius: 8px;
+  border-collapse: collapse;
+  border-color:  rgb(238, 83, 83) ;
+  
+}
+
+.tasktable body{
+   background-color: white;
+}
+.tasktable td {
+  padding: 12px 8px; /* vertical space = 12px, horizontal = 8px */
+  text-align: left;  /* optional */
+  border: 1px solid;
+  color: rgb(238, 83, 83);
+  background-color: white;
+  border-color:  rgb(238, 83, 83); /* optional for separation */
+}
+
+.Modal_backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+   position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.plus{
+   margin-left: 30px;
+   margin-top: 10px;
+   width: 130px;
+   height: 50px;
+   font-size: 16px;
+   background-color: rgb(238, 83, 83);
+   color: white;
+   border-radius: 4px;
+   border-color: white;
+}
+.plus:hover{
+background-color: white;
+   color: rgb(238, 83, 83);
+
+}
+.cross {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color:rgb(238, 83, 83);      
+  z-index: 1001;     
+}
+.cross:hover{
+   background-color: rgb(238, 83, 83);
+   color: white;
+}
+
+.tablehead{
+   background-color:  rgb(238, 83, 83);
+   color: white;
 }

@@ -1,19 +1,22 @@
 const express = require("express");
+ require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const bcrypt = require("bcrypt"); // for hashing password
 const app=express();
 const authMiddleware = require("./authMiddleware");
-
+const { ObjectId } = require("mongodb");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
-app.use(cors());
-const uri = "mongodb+srv://vijigishup:Vijigishu04@cluster0.ygt9i.mongodb.net/";
-const client = new MongoClient(uri);
+
+
+const client = new MongoClient(process.env.MONGO_URI);
 let usersCollection;
 let tasksCollection;
 app.use(express.json());
+
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 
 async function connectDB() {
@@ -75,7 +78,7 @@ app.post("/api/signin",async function(req,res){
     const isValid = await bcrypt.compare(password, storedhash);
      
     if(isValid){
-        require("dotenv").config();
+       
         
         const JWT_SECRET = process.env.JWT_SECRET;
        
@@ -88,7 +91,7 @@ app.post("/api/signin",async function(req,res){
         res.cookie("token",token,{
             httpOnly: true,
             secure: false,
-            sameSite:"strict",
+            sameSite:"lax",
             maxAge:7*24*60*60*1000
         });
        
@@ -118,7 +121,8 @@ app.post("/api/signin",async function(req,res){
 app.get("/api/tasks",authMiddleware,async function(req,res){
     try {
         console.log(req.userId);
-        const tasks = await tasksCollection.find({ userid: req.userId }).toArray();
+        const userObjectId = ObjectId.createFromHexString(req.userId);
+        const tasks = await tasksCollection.find({ userid: userObjectId }).toArray();
         res.json(tasks);
     } catch (error) {
         console.error(error);
@@ -131,10 +135,11 @@ app.post("/api/add_tasks",authMiddleware,async function(req,res){
     try{
     const title=req.body.title;
     const description=req.body.description;
+    const userObjectId1 = ObjectId.createFromHexString(req.userId);
     const task={
         title:title,
         description:description,
-        userid:req.userId
+        userid:userObjectId1
     };
     await tasksCollection.insertOne(task);
     res.status(201).json({
@@ -143,6 +148,7 @@ app.post("/api/add_tasks",authMiddleware,async function(req,res){
     })
 }
 catch(error){
+    console.log("server error 500");
     res.status(500).json({
         success:false,
         message:"Server Error"
