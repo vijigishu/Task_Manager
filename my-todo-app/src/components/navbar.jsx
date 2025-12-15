@@ -1,6 +1,6 @@
-import { useState } from "react";
+
 import "../App.css";
-import dashboard from '../assets/dashboard.png'
+
 export default function Navbar(){
 
 return(
